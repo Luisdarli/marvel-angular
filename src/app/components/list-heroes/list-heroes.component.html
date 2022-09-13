@@ -1,3 +1,9 @@
-<p>
-  list-heroes works!
-</p>
+<section>
+  <input class="hero-search" type="text" placeholder="Pesquise seu herói" (input)="heroSearch($event.target.value)" />
+  <div class="cointainer" *ngFor="let hero of heroes">
+    <div class="card-hero">
+      <img alt="Hero Image" src={{hero.thumbnail.path}}.{{hero.thumbnail.extension}}>
+      <h1>{{hero.name}}</h1>
+    </div>
+  </div>
+</section>
