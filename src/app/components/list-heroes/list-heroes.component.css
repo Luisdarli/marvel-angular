@@ -1,0 +1,38 @@
+section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.hero-search {}
+
+.cointainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 1280px;
+}
+
+.card-hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid gray;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  cursor: pointer;
+
+  width: 150px;
+  height: auto;
+  margin: 15px 0;
+}
+
+.card-hero img {
+  width: 100%;
+  height: auto;
+}
+
+.card-hero h1 {
+  text-align: center;
+}
