@@ -7,13 +7,15 @@ import { AppRoutingModule } from './app-routing.module';
 //Components
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
+import { HeroDetailsComponent } from './components/hero-details/hero-details.component';
 import { ListHeroesComponent } from './components/list-heroes/list-heroes.component';
 
 @NgModule({
   declarations: [
     HeaderComponent,
     AppComponent,
-    ListHeroesComponent
+    ListHeroesComponent,
+    HeroDetailsComponent
   ],
   imports: [
     BrowserModule,
