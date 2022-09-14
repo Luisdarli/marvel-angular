@@ -1,9 +1,18 @@
 <section>
   <input class="hero-search" type="text" placeholder="Pesquise seu herói" (input)="heroSearch($event.target.value)" />
+
   <div class="cointainer" *ngFor="let hero of heroes">
-    <div class="card-hero">
-      <img alt="Hero Image" src={{hero.thumbnail.path}}.{{hero.thumbnail.extension}}>
-      <h1>{{hero.name}}</h1>
+    <div [routerLink]="['/details/' + hero.id]">
+      <div class="card-hero" [style.background-image]="'url('+ hero.thumbnail.path +'.'+ hero.thumbnail.extension +')'">
+      </div>
+      <h1 class="card-hero__name">{{hero.name}}</h1>
     </div>
   </div>
+  <div *ngIf="heroes?.length == 0">
+    <p class="card-hero__error">Nenhum herói encontrado.</p>
+  </div>
+
+  <ng-container *ngIf="heroes?.length > 4">
+    <button class="load-more-button" (click)="loadMore()">Carregar mais</button>
+  </ng-container>
 </section>

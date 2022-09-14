@@ -4,19 +4,20 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 //Types
-import { BaseHeroesResponse } from './models/base-heroes.response';
 import { HeroesRequest } from './models/base-heroes.request';
+import { BaseHeroesResponse } from './models/base-heroes.response';
+import { HeroesDetailsResponse } from './models/hero-details.response';
 
 @Injectable({
   providedIn: 'root',
 })
 export class HeroesService {
+  public encodeURI = `ts=${environment.ts}&apikey=${environment.apikey}&hash=${environment.hash}&limit=5`
+
   constructor(private httpClient: HttpClient) { }
 
   GetAllHeroes(request?: HeroesRequest): Observable<BaseHeroesResponse> {
     let params = '&'
-
-    console.log('REQUEST', request);
 
     if (request?.nameStartsWith) {
       params += `nameStartsWith=${request.nameStartsWith}&`
@@ -26,6 +27,10 @@ export class HeroesService {
       params += `offset=${request.offset}&`
     }
 
-    return this.httpClient.get<BaseHeroesResponse>(`${environment.uri}/characters?ts=${environment.ts}&apikey=${environment.apikey}&hash=${environment.hash}${params}`);
+    return this.httpClient.get<BaseHeroesResponse>(`${environment.uri}/characters?${this.encodeURI}${params}`);
+  }
+
+  getDetailsFromHero(id: number, offset?: number): Observable<HeroesDetailsResponse> {
+    return this.httpClient.get<HeroesDetailsResponse>(`${environment.uri}/characters/${id}?${this.encodeURI}`)
   }
 }

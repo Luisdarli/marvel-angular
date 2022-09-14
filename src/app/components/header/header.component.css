@@ -1,0 +1,14 @@
+header {
+  width: 100%;
+  background-color: rgb(255, 0, 0);
+}
+
+.cointainer {
+  max-width: 1280px;
+}
+
+.cointainer img {
+  width: 150px;
+  height: auto;
+  cursor: pointer;
+}
