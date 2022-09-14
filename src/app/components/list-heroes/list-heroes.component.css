@@ -8,7 +8,10 @@ section {
   max-width: 1280px;
 }
 
-.hero-search {}
+.hero-search {
+  padding: 8px 25px;
+  border-radius: 8px;
+}
 
 .cointainer {
   display: flex;
@@ -45,4 +48,5 @@ section {
   font-size: 25px;
   font-family: unset;
   cursor: pointer;
+  margin: 15px 0;
 }

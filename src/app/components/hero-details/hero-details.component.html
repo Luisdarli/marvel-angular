@@ -1,3 +1,16 @@
-<p>
-  hero-details works!
-</p>
+<section>
+  <div class="hero-card">
+    <div>
+      <img class="hero-image" alt={{currentHero?.name}}
+        [src]="currentHero?.thumbnail.path+'.'+currentHero?.thumbnail.extension">
+    </div>
+
+    <div class="hero-info">
+      <h1 class="hero-name emphasis">{{currentHero?.name}}</h1>
+      <h3 class="hero-name">Quadrinhos:</h3>
+      <ul *ngFor="let comic of currentHero?.comics.items">
+        <li>{{comic.name}}</li>
+      </ul>
+    </div>
+  </div>
+</section>
