@@ -2,7 +2,7 @@
   <input class="hero-search" type="text" placeholder="Pesquise seu herói" (input)="heroSearch($event.target.value)" />
 
   <div class="cointainer" *ngFor="let hero of heroes">
-    <div [routerLink]="['/details/' + hero.id]">
+    <div [routerLink]="['/details/' + hero?.id]">
       <div class="card-hero" [style.background-image]="'url('+ hero.thumbnail.path +'.'+ hero.thumbnail.extension +')'">
       </div>
       <h1 class="card-hero__name">{{hero.name}}</h1>

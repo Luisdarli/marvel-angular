@@ -9,20 +9,10 @@ import { BaseHeroesResponse } from 'src/app/services/heroes/models/base-heroes.r
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-  public dataProvided: string;
 
   constructor(
-    private heroService: HeroesService
   ) { }
 
   ngOnInit() {
-    this.getAllHeroes();
   }
-
-  async getAllHeroes() {
-    await this.heroService.GetAllHeroes().subscribe((data: BaseHeroesResponse) => {
-      this.dataProvided = data.attributionText;
-    })
-  }
-
 }

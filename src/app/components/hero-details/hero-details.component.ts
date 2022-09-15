@@ -14,6 +14,7 @@ export class HeroDetailsComponent implements OnInit {
 
   public selectedHero: number;
   public currentHero: Result;
+  public currentHeroImage: string;
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -28,8 +29,12 @@ export class HeroDetailsComponent implements OnInit {
   async getDetailsFromHero() {
     await this.heroService.getDetailsFromHero(this.selectedHero).subscribe((data: HeroesDetailsResponse) => {
       this.currentHero = data.data.results[0];
-      console.log('chegou', this.currentHero);
+      this.getImagePath();
     })
+  }
+
+  getImagePath() {
+    this.currentHeroImage = `${this.currentHero?.thumbnail.path}.${this.currentHero?.thumbnail.extension}`
   }
 
 }
