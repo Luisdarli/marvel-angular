@@ -57,6 +57,10 @@ section {
   margin: 15px 0;
 }
 
+.login-error {
+  text-align: center;
+}
+
 
 @media only screen and (min-width: 550px) {
   section {
@@ -77,9 +81,5 @@ section {
 
   .cards {
     margin: 0 8px;
-  }
-
-  .login-error {
-    text-align: center;
   }
 }
