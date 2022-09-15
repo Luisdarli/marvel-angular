@@ -13,15 +13,20 @@ section {
   border-radius: 8px;
 }
 
-.cointainer {
+.cards {
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
+}
+
+.card-wrapper {
+  width: 180px;
 }
 
 .card-hero {
   cursor: pointer;
-  width: 180px;
+  width: 100%;
   height: 250px;
   margin: 15px auto;
   background-repeat: no-repeat;
@@ -30,6 +35,7 @@ section {
 
 .card-hero__name {
   font-size: 26px;
+  width: 180px;
 }
 
 .card-hero__error {
@@ -49,4 +55,31 @@ section {
   font-family: unset;
   cursor: pointer;
   margin: 15px 0;
+}
+
+
+@media only screen and (min-width: 550px) {
+  section {
+    margin: 0 auto;
+  }
+
+  .hero-search {
+    margin-top: 20px;
+  }
+
+  .container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: center;
+  }
+
+  .cards {
+    margin: 0 8px;
+  }
+
+  .login-error {
+    text-align: center;
+  }
 }

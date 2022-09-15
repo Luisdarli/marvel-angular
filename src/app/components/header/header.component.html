@@ -1,5 +1,7 @@
 <header>
   <div class="cointainer">
     <img [routerLink]="['/']" alt="Marvel logo" src="../../../assets/marvel-logo-header.jpg">
+    <button class="login-button" *ngIf="!isAuthenticated" (click)="authentication()">Login</button>
+    <button class="login-button" *ngIf="isAuthenticated" (click)="logout()">Logout</button>
   </div>
 </header>

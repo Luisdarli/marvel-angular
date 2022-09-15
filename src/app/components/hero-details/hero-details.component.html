@@ -11,6 +11,7 @@
       <ul *ngFor="let comic of currentHero?.comics.items">
         <li>{{comic.name}}</li>
       </ul>
+      <p *ngIf="currentHero?.comics.items.length == 0">Não possuí quadrinhos</p>
     </div>
   </div>
 </section>
