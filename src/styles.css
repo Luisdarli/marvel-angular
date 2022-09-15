@@ -8,3 +8,7 @@ body {
   font-family: 'Bangers', cursive;
   background-color: rgb(236, 236, 223);
 }
+
+a {
+  color: black;
+}

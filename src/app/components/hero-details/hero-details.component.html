@@ -1,12 +1,12 @@
 <section>
   <div class="hero-card">
     <div>
-      <img class="hero-image" alt={{currentHero?.name}}
-        [src]="currentHero?.thumbnail.path+'.'+currentHero?.thumbnail.extension">
+      <img class="hero-image" alt={{currentHero?.name}} src={{currentHeroImage}}>
     </div>
 
     <div class="hero-info">
       <h1 class="hero-name emphasis">{{currentHero?.name}}</h1>
+      <p>Ultima atualização: {{currentHero?.modified | date: 'dd/MM/yyyy'}}</p>
       <h3 class="hero-name">Quadrinhos:</h3>
       <ul *ngFor="let comic of currentHero?.comics.items">
         <li>{{comic.name}}</li>
