@@ -24,6 +24,7 @@ export class HeroDetailsComponent implements OnInit {
   ngOnInit() {
     this.selectedHero = this.activatedRoute.snapshot.params['id'];
     this.getDetailsFromHero();
+
   }
 
   async getDetailsFromHero() {

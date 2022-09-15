@@ -1,13 +1,17 @@
-<section>
+<section *ngIf="isAuthenticated">
   <input class="hero-search" type="text" placeholder="Pesquise seu herói" (input)="heroSearch($event.target.value)" />
 
-  <div class="cointainer" *ngFor="let hero of heroes">
-    <div [routerLink]="['/details/' + hero?.id]">
-      <div class="card-hero" [style.background-image]="'url('+ hero.thumbnail.path +'.'+ hero.thumbnail.extension +')'">
+  <div class="container">
+    <div class="cards" *ngFor="let hero of heroes">
+      <div class="card-wrapper" [routerLink]="['/details/' + hero?.id]">
+        <div class="card-hero"
+          [style.background-image]="'url('+ hero.thumbnail.path +'.'+ hero.thumbnail.extension +')'">
+        </div>
       </div>
       <h1 class="card-hero__name">{{hero.name}}</h1>
     </div>
   </div>
+
   <div *ngIf="heroes?.length == 0">
     <p class="card-hero__error">Nenhum herói encontrado.</p>
   </div>
@@ -16,3 +20,9 @@
     <button class="load-more-button" (click)="loadMore()">Carregar mais</button>
   </ng-container>
 </section>
+
+<ng-container *ngIf="!isAuthenticated">
+  <div class="login-error">
+    <p>Por Favor, faça o login.</p>
+  </div>
+</ng-container>

@@ -4,6 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 //Components
 import { ListHeroesComponent } from './components/list-heroes/list-heroes.component';
 import { HeroDetailsComponent } from './components/hero-details/hero-details.component';
+import { GuardRouteService } from './guards/guard-route';
 
 const routes: Routes = [
   {
@@ -12,6 +13,7 @@ const routes: Routes = [
   },
   {
     path: 'details/:id',
+    canActivate: [GuardRouteService],
     component: HeroDetailsComponent
   }
 

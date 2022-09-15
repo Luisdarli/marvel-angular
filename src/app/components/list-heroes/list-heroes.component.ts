@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { HeroesService } from 'src/app/services/heroes/heroes.service';
 import { HeroesRequest } from 'src/app/services/heroes/models/base-heroes.request';
 import { BaseHeroesResponse, Result } from 'src/app/services/heroes/models/base-heroes.response';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-list-heroes',
@@ -14,12 +15,23 @@ export class ListHeroesComponent implements OnInit {
     offset: 0
   };
 
+  public isAuthenticated = false;
+
   constructor(
-    private heroService: HeroesService
+    private heroService: HeroesService,
   ) { }
 
   ngOnInit() {
     this.getAllHeroes();
+    this.isAuthenticated = this.checkIfisAuthenticated();
+  }
+
+  checkIfisAuthenticated() {
+    if (localStorage.getItem('userToken') === environment.apikey) {
+      return true;
+    } else {
+      return false;
+    }
   }
 
   async getAllHeroes() {
@@ -28,13 +40,13 @@ export class ListHeroesComponent implements OnInit {
     })
   }
 
-  async filterHeroes(params) {
+  async filterHeroes(params: HeroesRequest) {
     await this.heroService.GetAllHeroes(params).subscribe((data: BaseHeroesResponse) => {
       this.heroes = data.data.results;
     })
   }
 
-  heroSearch(evt) {
+  heroSearch(evt: string) {
     this.filter.offset = 0;
 
     if (evt.length === 0) {
